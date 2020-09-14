@@ -64,10 +64,8 @@ namespace oglu
             //std::cout<<"position (init) = "<<gdata[i][0]<<", "<<gdata[i][1]<<", "<<gdata[i][2]<<std::endl;
 
             glm::vec3 scaling(gdata[i][3], gdata[i][3], gdata[i][3]);
-            // debugging lne
-            //glm::vec3 scaling(gdata[i][3]/scaleNorm, gdata[i][3]/scaleNorm, gdata[i][3]/scaleNorm);
             glm::vec3 rotation(1.0f, 1.0f, 1.0f);
-            glm::vec3 color(1.0f, 0.0f, 0.0f);
+            glm::vec3 color(1.0f, 1.0f-gdata[i][4], 1.0f-gdata[i][4]);
             float angle = gdata[i][5];
 
             pos.push_back(position);

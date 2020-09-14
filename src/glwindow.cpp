@@ -34,7 +34,8 @@ void oglu::glwindow::clear()
 
 void oglu::glwindow::construct()
 {
-    main_camera = new camera(glm::vec3(0.05f, 0.05f, 1.0f));
+    //main_camera = new camera(glm::vec3(0.05f, 0.05f, 1.0f));
+    main_camera = new camera(glm::vec3(0.50f, 1.0f, 5.0f));
 
     firstMouse = true;
 }

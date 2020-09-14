@@ -19,6 +19,7 @@ oglu::camera::camera(glm::vec3 position, glm::vec3 up, float yaw, float pitch) :
 
 oglu::camera::camera(float posX, float posY, float posZ, float upX, float upY, float upZ, float yaw, float pitch) : lookDirection(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM)
 {
+
     cameraPosition = glm::vec3(posX, posY, posZ);
     cameraPosition0 = cameraPosition;
     WorldTop = glm::vec3(upX, upY, upZ);
@@ -141,7 +142,7 @@ void oglu::camera::ProcessMouseMovementLeftBtn(float xoffset, float yoffset)
 
 void oglu::camera::ProcessMouseMovementRightBtn(float xoffset, float yoffset, float deltaTime)
 {
-    float velocity = /*MovementSpeed * */deltaTime * MouseSensitivity;
+    float velocity = /*MovementSpeed * */deltaTime * MouseSensitivity * 4.0f;
 
     cameraPosition += Right * xoffset* velocity;
     cameraPosition += currentTop * yoffset* velocity;

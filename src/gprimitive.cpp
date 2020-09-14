@@ -53,7 +53,7 @@ namespace oglu
             glm::mat4 model = glm::mat4(1.0f);
             model = glm::translate(model, positions[i]);
 
-            //std::cout<<"positions[i] = "<<positions[i].x<<", "<<positions[i].y<<", "<<positions[i].z<<std::endl;
+            //std::cout<<"colour = "<<colour[i].x<<", "<<colour[i].y<<", "<<colour[i].z<<std::endl;
             
             if (angle[2*i+1])
                 model = glm::rotate(model, (float)glfwGetTime() * glm::radians(angle[2*i]), rotation[i]);
@@ -62,6 +62,7 @@ namespace oglu
             
             /* calculate transformation matrix (for each object) */
             glm::mat4 transform = glm::mat4(1.0f);
+
             transform = glm::scale(transform, scaling[i]);
 
             /* pass matrix variables (projection, view, model and transformation) to the shader before drawing */
@@ -71,7 +72,9 @@ namespace oglu
             _shader->setUniformMatrFloat("Transform", transform);
 
             glm::vec3 currColor = glm::vec3(colour[i].x, colour[i].y, colour[i].z);
-            glm::vec3 currLight = light;
+            //glm::vec3 currLight = light;
+            glm::vec3 currLight = glm::vec3(0.8f);
+
             glm::vec3 currLPos = window.main_camera->cameraPosition;
             glm::vec3 currCamPos = window.main_camera->cameraPosition;
             
